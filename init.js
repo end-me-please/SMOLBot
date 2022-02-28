@@ -25,7 +25,7 @@ function sendMessage(channelId, message){
 };
 
 function deleteMessage(channelId, messageId){
-	fetchMessage(channelId.toString()).messageId.toString()).delete();
+	fetchMessage(channelId.toString(), messageId.toString()).delete();
 };
 
 function replyMessage(channelId, messageId, message){
