@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/SMOLKEYS/smolbot#readme",
   "dependencies": {
-    "discord-buttons": "^4.0.0-deprecated",
     "discord-module": "^2.0.17",
     "discord.js": "^13.6.0"
   }
