@@ -1,0 +1,23 @@
+{
+  "name": "smolbot",
+  "version": "1.0.0",
+  "description": "A minimalistic bot.",
+  "main": "init.js",
+  "scripts": {
+    "test": "a"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SMOLKEYS/smolbot.git"
+  },
+  "author": "SMOLKEYS",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/SMOLKEYS/smolbot/issues"
+  },
+  "homepage": "https://github.com/SMOLKEYS/smolbot#readme",
+  "dependencies": {
+    "discord-buttons": "^4.0.0-deprecated",
+    "discord.js": "^13.6.0"
+  }
+}
