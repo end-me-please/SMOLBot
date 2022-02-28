@@ -3,6 +3,7 @@ const login = require("./token.json");
 const Filesys = require("fs");
 const Path = require("path");
 const DiscordModule = require("discord-module");
+const Embed = require("./help.js");
 const Bot = new Discord.Client({
 	intents: [
 		"GUILDS",
@@ -30,6 +31,14 @@ Bot.on("messageCreate", msg => {
     switch(c){
     	case "ping":
     	msg.reply("Pong!");
+    	break;
+
+    	case "help":
+    	msg.reply({
+    		embeds: [
+    			Embed.HelpEmbed
+    		]
+    	});
     	break;
 
     	case "delayping":
