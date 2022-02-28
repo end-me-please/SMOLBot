@@ -1,4 +1,4 @@
-/const Discord = require("discord.js");
+const Discord = require("discord.js");
 const login = require("./token.json");
 const Filesys = require("fs");
 const Path = require("path");
