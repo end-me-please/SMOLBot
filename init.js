@@ -1,5 +1,9 @@
 const Discord = require("discord.js");
 const login = require("./token.json");
+const Filesys = require("fs");
+const Path = require("path");
+const DiscordButtons = require("discord-buttons");
+const DiscordModule = require("discord-module");
 const Bot = new Discord.Client({
 	intents: [
 		"GUILDS",
