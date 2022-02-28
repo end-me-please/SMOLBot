@@ -12,6 +12,8 @@ const Bot = new Discord.Client({
 
 const prefix = "sm!";
 
+Bot.on("ready", () => {
+
 function fetchChannel(channelId){
 	Bot.channels.cache.get(channelId.toString());
 };
@@ -32,8 +34,6 @@ function replyMessage(channelId, messageId, message){
 	fetchMessage(channelId.toString(), messageId.toString()).reply(message);
 };
 
-
-Bot.on("ready", () => {
 		Bot.user.setActivity("everything", {
 			type: "WATCHING"
 		});
