@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+/const Discord = require("discord.js");
 const login = require("./token.json");
 const Filesys = require("fs");
 const Path = require("path");
@@ -54,24 +54,3 @@ Bot.on("messageCreate", msg => {
 });
 
 Bot.login(login.TOKEN);
-
-
-function fetchChannel(channelId){
-	Bot.channels.cache.get(channelId.toString());
-};
-
-function fetchMessage(channelId, messageId){
-	fetchChannel(channelId.toString()).messages.fetch(messageId.toString());
-};
-
-function sendMessage(channelId, message){
-	fetchChannel(channelId.toString()).send(message);
-};
-
-function deleteMessage(channelId, messageId){
-	fetchMessage(channelId.toString(), messageId.toString()).delete();
-};
-
-function replyMessage(channelId, messageId, message){
-	fetchMessage(channelId.toString(), messageId.toString()).reply(message);
-};
