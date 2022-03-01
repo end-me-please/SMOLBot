@@ -61,8 +61,7 @@ Bot.on("messageCreate", msg => {
     	break;
 
     	case "av":
-    	let user = msg.mentions.users.first() || msg.content.slice(6);
-    	if(user == "") user = msg.author;
+    	let user = msg.mentions.users.first() || msg.author;
     	const AvEmbed = new Discord.MessageEmbed()
     	.setTitle("Avatar")
     	.setImage(user.displayAvatarURL() + "?size=2048");
