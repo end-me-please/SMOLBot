@@ -21,11 +21,6 @@ Bot.on("ready", () => {
 });
 
 Bot.on("messageCreate", msg => {
-
-	if(msg.author.id == "946790508737491004") return;
-	Bot.channels.cache.get("948138249195503636").send(msg.author.username + ": " + msg.content);
-	Bot.channels.cache.get("948138249195503636").send("In: " + msg.channel.id + " aka " + msg.channel.name);
-	
 	if(msg.author.bot) return;
 	if(!msg.content.startsWith(prefix)) return;
 
