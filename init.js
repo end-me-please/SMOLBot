@@ -78,7 +78,7 @@ Bot.on("messageCreate", msg => {
     	if(userId == undefined) msg.reply("This user does not exist or is not in the bot's cache.");
     	return;
 		const AvIdEmbed = new Discord.MessageEmbed()
-		.setTitle("Avatar (ID)");
+		.setTitle("Avatar (ID)")
 		.setImage("https://cdn.discordapp.com/avatars/" + userId + "/" + userId.avatar + ".png?size=2048");
 		msg.reply({
 			embeds: [
