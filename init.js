@@ -80,10 +80,13 @@ Bot.on("messageCreate", msg => {
     	for(i = 0; i < Number(nArgs); i++){
     		nArr.push(Sus.nHentai().toString());
     	};
-    	if(nArr.toString().length > 1990) msg.reply("Generated links surpass 2000 letters!");
-    	return;
-    	
-    	msg.channel.send(nArr.toString().replace(/,/g, "\n"))
+    	if(nArr.toString().length > 1990){
+    		msg.reply("Generated links surpass 2000 letters!");
+    		nArr = [];
+    	} else {
+    	msg.channel.send(nArr.toString().replace(/,/g, "\n"));
+    	nArr = [];
+    	};
     	break;
     };
 });
