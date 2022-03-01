@@ -59,6 +59,18 @@ Bot.on("messageCreate", msg => {
     		console.log(e.toString());
     	}
     	break;
+
+    	case "av":
+    	const user = msg.mentions.users.first() || msg.author;
+    	const AvEmbed = new Discord.MessageEmbed()
+    	.setTitle("Avatar")
+    	.setImage(user.displayAvatarUrl());
+    	msg.reply({
+    		embeds: [
+    			AvEmbed
+    		]
+    	});
+    	break;
     };
 });
 

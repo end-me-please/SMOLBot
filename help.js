@@ -17,12 +17,12 @@ const HelpEmbed = new Discord.MessageEmbed()
 				value: "\"ping\", but has a delay between 0 (instant) and 25."
 			},
 			{
-				name: "eval",
+				name: "eval <script>",
 				value: "Runs arbitary javascript code. Can also be used to test bot scripts. SU only."
 			},
 			{
-				name: "???",
-				value:"new String(\"Could not apply ??? to 'value'.\")"
+				name: "av <mention>/avid <userId>",
+				value: "Obtains the avatar of the mentioned user/specified user id."
 			}
 		)
 
