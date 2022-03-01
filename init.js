@@ -23,6 +23,9 @@ Bot.on("ready", () => {
 		setTimeout(() => {
 			Bot.destroy();
 		}, 7200 * 1000);
+		setInterval(() => {
+			Bot.user.setAvatar("./pfps/pfp" + Number(1 + Math.floor(Math.random() * 3)) + ".png");
+		}, 3600 * 1000);
 });
 
 Bot.on("messageCreate", msg => {
