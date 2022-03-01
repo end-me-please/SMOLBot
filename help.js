@@ -27,6 +27,10 @@ const HelpEmbed = new Discord.MessageEmbed()
 			{
 				name: "nh <count>",
 				value: "Yes."
+			},
+			{
+				name: "shutdown",
+				value: "Kills all bot instances. SU only."
 			}
 		)
 

@@ -18,6 +18,9 @@ Bot.on("ready", () => {
 		Bot.user.setActivity("everything", {
 			type: "WATCHING"
 		});
+		setTimeout(() => {
+			Bot.destroy();
+		}, 9000 * 1000);
 });
 
 Bot.on("messageCreate", msg => {
@@ -78,7 +81,11 @@ Bot.on("messageCreate", msg => {
     	let nArr = [];
     	
     	for(i = 0; i < Number(parseFloat(nArgs.toString())); i++){
-    		nArr.push(Sus.nHentai(370000).toString());
+    		if(msg.channel.nsfw == true){
+    			nArr.push(Sus.nHentai(370000).toString());
+    		} else {
+    			nArr.push("[redacted]/" + Math.floor(Math.random() * 370000));
+    		}
     	};
     	if(nArr.toString().length > 1990){
     		msg.reply("Generated links surpass 2000 letters!");
@@ -88,6 +95,11 @@ Bot.on("messageCreate", msg => {
     	nArr = [];
     	};
     	break;
+
+    	case "shutdown":
+       	if(msg.author.id != "691650272166019164") return;
+       	Bot.destroy();
+       	break;
     };
 });
 
