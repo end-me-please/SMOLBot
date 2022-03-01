@@ -74,12 +74,11 @@ Bot.on("messageCreate", msg => {
 
     	case "nh":
     	const nArgs = msg.content.slice(5);
-    	const selArgs = msg.content.slice(8);
 
     	let nArr = [];
     	
     	for(i = 0; i < Number(nArgs); i++){
-    		nArr.push(Sus.nHentai(Number(selArgs)).toString());
+    		nArr.push(Sus.nHentai(370000).toString());
     	};
     	if(nArr.toString().length > 1990){
     		msg.reply("Generated links surpass 2000 letters!");
