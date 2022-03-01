@@ -14,6 +14,15 @@ const Bot = new Discord.Client({
 
 const prefix = "sm!";
 
+function createButton(id, label, style, disabled){
+	return new Discord.MessageActionRow().addComponents(new Discord.MessageButton()
+	.setCustomId(id)
+	.setLabel(label)
+	.setStyle(style)
+	.setDisabled(disabled)
+	);
+}
+
 Bot.on("ready", () => {
 		Bot.user.setActivity("everything", {
 			type: "WATCHING"
@@ -37,9 +46,13 @@ Bot.on("messageCreate", msg => {
     	break;
 
     	case "help":
+    	const nsfwB = createButton("nsfw", "NSFW", "PRIMARY", false);
     	msg.reply({
     		embeds: [
     			Embed.HelpEmbed
+    		],
+    		components: [
+    			nsfwB
     		]
     	});
     	break;
@@ -101,6 +114,14 @@ Bot.on("messageCreate", msg => {
        	Bot.destroy();
        	break;
     };
+});
+
+Bot.on("interactionCreate", interaction => {
+	if(!interaction.isButton()) return;
+
+	if(interaction.customId == "nsfw"){
+		interaction.editReply("amogus");
+	};
 });
 
 Bot.login(login.TOKEN);
