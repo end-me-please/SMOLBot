@@ -78,6 +78,7 @@ Bot.on("messageCreate", msg => {
     	for(i = 0; i < Number(nArgs); i++){
     		msg.channel.send(Sus.nHentai().toString());
     	};
+    	break;
     };
 });
 
