@@ -75,9 +75,15 @@ Bot.on("messageCreate", msg => {
     	case "nh":
     	const nArgs = msg.content.slice(5);
 
+    	let nArr = [];
+    	
     	for(i = 0; i < Number(nArgs); i++){
-    		msg.channel.send(Sus.nHentai().toString());
+    		nArr.push(Sus.nHentai().toString());
     	};
+    	if(nArr.toString().length > 1990) msg.reply("Generated links surpass 2000 letters!");
+    	return;
+    	
+    	msg.channel.send(nArr.toString().replace(/,/g, "\n"))
     	break;
     };
 });
