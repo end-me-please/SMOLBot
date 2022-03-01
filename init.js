@@ -64,7 +64,7 @@ Bot.on("messageCreate", msg => {
     	const user = msg.mentions.users.first() || msg.author;
     	const AvEmbed = new Discord.MessageEmbed()
     	.setTitle("Avatar")
-    	.setImage(user.displayAvatarUrl());
+    	.setImage(user.displayAvatarURL());
     	msg.reply({
     		embeds: [
     			AvEmbed
