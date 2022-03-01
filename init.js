@@ -71,21 +71,6 @@ Bot.on("messageCreate", msg => {
     		]
     	});
     	break;
-
-    	case "avid":
-    	const subArgs = msg.content.slice(4);
-    	const userId = Bot.users.cache.get(subArgs);
-    	if(userId == undefined) msg.reply("This user does not exist or is not in the bot's cache.");
-    	return;
-		const AvIdEmbed = new Discord.MessageEmbed()
-		.setTitle("Avatar (ID)")
-		.setImage("https://cdn.discordapp.com/avatars/" + userId + "/" + userId.avatar + ".png?size=2048");
-		msg.reply({
-			embeds: [
-				AvIdEmbed
-			]
-		});
-		break;
     };
 });
 

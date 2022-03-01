@@ -21,8 +21,8 @@ const HelpEmbed = new Discord.MessageEmbed()
 				value: "Runs arbitary javascript code. Can also be used to test bot scripts. SU only."
 			},
 			{
-				name: "av <mention>/avid <userId>",
-				value: "Obtains the avatar of the mentioned user/specified user id."
+				name: "av <mention>",
+				value: "Obtains the avatar of the mentioned user."
 			}
 		)
 
