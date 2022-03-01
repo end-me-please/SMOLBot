@@ -39,7 +39,6 @@ Bot.on("messageCreate", msg => {
     	break;
 
     	case "help":
-    	const nsfwB = createButton("nsfw", "NSFW", "PRIMARY", false);
     	msg.reply({
     		embeds: [
     			Embeds.HelpEmbed
