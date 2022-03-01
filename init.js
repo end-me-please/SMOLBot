@@ -139,6 +139,14 @@ Bot.on("interactionCreate", async interaction => {
 			]
 		});
 	};
+
+	if(interaction.customId == "end"){
+		await interaction.update({
+			content: "Closed",
+			embeds:[],
+			components: []
+		});
+	};
 });
 
 Bot.login(login.TOKEN);
