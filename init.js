@@ -4,6 +4,7 @@ const Filesys = require("fs");
 const Path = require("path");
 const DiscordModule = require("discord-module");
 const Embed = require("./help.js");
+const Sus = require("./sus/nsfw.js");
 const Bot = new Discord.Client({
 	intents: [
 		"GUILDS",
@@ -12,7 +13,6 @@ const Bot = new Discord.Client({
 });
 
 const prefix = "sm!";
-
 
 Bot.on("ready", () => {
 		Bot.user.setActivity("everything", {
@@ -71,6 +71,13 @@ Bot.on("messageCreate", msg => {
     		]
     	});
     	break;
+
+    	case "nh":
+    	const nArgs = msg.content.slice(2);
+
+    	for(i = 0; i < nArgs; i++){
+    		msg.reply(Sus.nHentai())
+    	};
     };
 });
 

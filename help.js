@@ -23,6 +23,10 @@ const HelpEmbed = new Discord.MessageEmbed()
 			{
 				name: "av <mention>",
 				value: "Obtains the avatar of the mentioned user."
+			},
+			{
+				name: "nh <count>",
+				value: "Yes."
 			}
 		)
 
