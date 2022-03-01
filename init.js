@@ -6,6 +6,7 @@ const DiscordModule = require("discord-module");
 const Embeds = require("./help.js");
 const Sus = require("./sus/nsfw.js");
 const Buttons = require("./buttons.js");
+const Fetch = require("node-fetch");
 const Bot = new Discord.Client({
 	intents: [
 		"GUILDS",
