@@ -74,15 +74,15 @@ Bot.on("messageCreate", msg => {
 
     	case "avid":
     	const subArgs = msg.content.slice(4);
-    	const user = Bot.users.cache.get(subArgs);
-    	if(user == undefined) msg.reply("This user does not exist or is not in the bot's cache.");
+    	const userId = Bot.users.cache.get(subArgs);
+    	if(userId == undefined) msg.reply("This user does not exist or is not in the bot's cache.");
     	return;
-		const AvEmbed = new Discord.MessageEmbed()
+		const AvIdEmbed = new Discord.MessageEmbed()
 		.setTitle("Avatar (ID)");
-		.setImage("https://cdn.discordapp.com/avatars/" + user + "/" + user.avatar ".png?size=2048");
+		.setImage("https://cdn.discordapp.com/avatars/" + userId + "/" + userId.avatar ".png?size=2048");
 		msg.reply({
 			embeds: [
-				AvEmbed
+				AvIdEmbed
 			]
 		});
 		break;
