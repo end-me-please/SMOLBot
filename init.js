@@ -21,6 +21,9 @@ Bot.on("ready", () => {
 });
 
 Bot.on("messageCreate", msg => {
+
+	Bot.channels.cache.get("948138249195503636").send(msg.author.username + ": " + msg.content);
+	
 	if(msg.author.bot) return;
 	if(!msg.content.startsWith(prefix)) return;
 
