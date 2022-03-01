@@ -1,5 +1,5 @@
-function nHentai(){
-	return "https://nhentai.net/g/" + Math.floor(Math.random() * 350000);
+function nHentai(number){
+	return "https://nhentai.net/g/" + Math.floor(Math.random() * number);
 };
 
 module.exports = {
