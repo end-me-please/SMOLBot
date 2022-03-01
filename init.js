@@ -73,7 +73,7 @@ Bot.on("messageCreate", msg => {
     	break;
 
     	case "nh":
-    	const nArgs = msg.content.slice(2);
+    	const nArgs = msg.content.slice(5);
 
     	for(i = 0; i < Number(nArgs); i++){
     		msg.channel.send(Sus.nHentai().toString());
