@@ -79,7 +79,7 @@ Bot.on("messageCreate", msg => {
     	return;
 		const AvIdEmbed = new Discord.MessageEmbed()
 		.setTitle("Avatar (ID)");
-		.setImage("https://cdn.discordapp.com/avatars/" + userId + "/" + userId.avatar ".png?size=2048");
+		.setImage("https://cdn.discordapp.com/avatars/" + userId + "/" + userId.avatar + ".png?size=2048");
 		msg.reply({
 			embeds: [
 				AvIdEmbed
