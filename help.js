@@ -25,15 +25,22 @@ const HelpEmbed = new Discord.MessageEmbed()
 				value: "Obtains the avatar of the mentioned user."
 			},
 			{
-				name: "nh <count>",
-				value: "Yes."
-			},
-			{
 				name: "shutdown",
 				value: "Kills all bot instances. SU only."
 			}
-		)
+		);
+
+const NsfwHelpEmbed = new Discord.MessageEmbed()
+		.setColor("#ff0f32")
+		.setDescription("NSFW help menu.")
+		.addFields(
+			{
+				name: "nh <count>",
+				value: "Generates NH links."
+			}
+		);
 
 module.exports = {
-	HelpEmbed: HelpEmbed
+	HelpEmbed: HelpEmbed,
+	NsfwHelpEmbed: NsfwHelpEmbed
 };

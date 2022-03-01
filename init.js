@@ -3,8 +3,9 @@ const login = require("./token.json");
 const Filesys = require("fs");
 const Path = require("path");
 const DiscordModule = require("discord-module");
-const Embed = require("./help.js");
+const Embeds = require("./help.js");
 const Sus = require("./sus/nsfw.js");
+const Buttons = require("./buttons.js");
 const Bot = new Discord.Client({
 	intents: [
 		"GUILDS",
@@ -14,14 +15,6 @@ const Bot = new Discord.Client({
 
 const prefix = "sm!";
 
-function createButton(id, label, style, disabled){
-	return new Discord.MessageActionRow().addComponents(new Discord.MessageButton()
-	.setCustomId(id)
-	.setLabel(label)
-	.setStyle(style)
-	.setDisabled(disabled)
-	);
-}
 
 Bot.on("ready", () => {
 		Bot.user.setActivity("everything", {
@@ -49,10 +42,10 @@ Bot.on("messageCreate", msg => {
     	const nsfwB = createButton("nsfw", "NSFW", "PRIMARY", false);
     	msg.reply({
     		embeds: [
-    			Embed.HelpEmbed
+    			Embeds.HelpEmbed
     		],
     		components: [
-    			nsfwB
+    			Buttons.NsfwButton
     		]
     	});
     	break;
@@ -121,9 +114,23 @@ Bot.on("interactionCreate", async interaction => {
 
 	if(interaction.customId == "nsfw"){
 		await interaction.update({
-			content: "sus",
-			components: [],
-			embeds: []
+			embeds: [
+				Embeds.NsfwHelpEmbed
+			],
+			components: [
+				Buttons.HelpButton
+			]
+		});
+	};
+
+	if(interaction.customId == "help"){
+		await interaction.update({
+			embeds: [
+				Embeds.HelpEmbed
+			],
+			components: [
+				Buttons.NsfwButton
+			]
 		});
 	};
 });
