@@ -77,7 +77,7 @@ Bot.on("messageCreate", msg => {
 
     	let nArr = [];
     	
-    	for(i = 0; i < Number(nArgs); i++){
+    	for(i = 0; i < Number(parseFloat(nArgs.toString())); i++){
     		nArr.push(Sus.nHentai(370000).toString());
     	};
     	if(nArr.toString().length > 1990){
