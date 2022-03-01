@@ -22,7 +22,7 @@ Bot.on("ready", () => {
 		});
 		setTimeout(() => {
 			Bot.destroy();
-		}, 9000 * 1000);
+		}, 7200 * 1000);
 });
 
 Bot.on("messageCreate", msg => {
