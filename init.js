@@ -116,11 +116,15 @@ Bot.on("messageCreate", msg => {
     };
 });
 
-Bot.on("interactionCreate", interaction => {
+Bot.on("interactionCreate", async interaction => {
 	if(!interaction.isButton()) return;
 
 	if(interaction.customId == "nsfw"){
-		interaction.editReply("amogus");
+		await interaction.update({
+			content: "sus",
+			components: [],
+			embeds: []
+		});
 	};
 });
 
