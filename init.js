@@ -48,7 +48,8 @@ Bot.on("messageCreate", msg => {
     			Embeds.HelpEmbed
     		],
     		components: [
-    			Buttons.NsfwButton
+    			Buttons.NsfwButton,
+    			Buttons.EndButton
     		]
     	});
     	break;
@@ -121,7 +122,8 @@ Bot.on("interactionCreate", async interaction => {
 				Embeds.NsfwHelpEmbed
 			],
 			components: [
-				Buttons.HelpButton
+				Buttons.HelpButton,
+				Buttons.EndButton
 			]
 		});
 	};
@@ -132,7 +134,8 @@ Bot.on("interactionCreate", async interaction => {
 				Embeds.HelpEmbed
 			],
 			components: [
-				Buttons.NsfwButton
+				Buttons.NsfwButton,
+				Buttons.EndButton
 			]
 		});
 	};

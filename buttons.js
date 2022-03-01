@@ -14,7 +14,15 @@ const HelpButton = new Discord.MessageActionRow().addComponents(
 	.setStyle("PRIMARY")
 );
 
+const EndButton = new Discord.MessageActionRow().addComponents(
+	new Discord.MessageButton()
+	.setCustomId("end")
+	.setLabel("End Session")
+	.setStyle("PRIMARY")
+);
+
 module.exports = {
 	NsfwButton: NsfwButton,
-	HelpButton: HelpButton
+	HelpButton: HelpButton,
+	EndButton: EndButton
 }
