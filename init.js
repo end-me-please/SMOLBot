@@ -90,7 +90,7 @@ Bot.on("messageCreate", msg => {
 
     	let nArr = [];
     	
-    	for(i = 0; i < Number(parseFloat(nArgs.toString())); i++){
+    	for(i = 0; i < Number(parseFloat(nArgs.toString() || "1")); i++){
     		if(msg.channel.nsfw == true){
     			nArr.push(Sus.nHentai(370000).toString());
     		} else {
