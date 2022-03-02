@@ -17,6 +17,16 @@ jobs:
     steps:
      - name: Checkout
        uses: actions/checkout@v2
+
+     - name: Pythonsetup
+       uses: actions/setup-python@v2
+       with:
+         python-version: "3.x"
+
+     - name: Javasetup
+       uses: actions/setup-java@v2
+       with:
+         java-version: 17
        
      - name: Run
        run: |
