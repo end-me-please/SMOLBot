@@ -127,23 +127,48 @@ Bot.on("messageCreate", msg => {
        		Bot.users.cache.forEach(us => ugArr.push(us.username + " - " + us.id));
        		msg.channel.send("Cached users in all guilds SMOLBot is in: ```\n" + ugArr.join("\n") + "\n```\nNOTE: This list will reset everytime the bot restarts.");
        		break;
+
+       		default:
+       		msg.reply("Please supply an argument.");
+       		break;
        	};
        	break;
 
        	case "archive":
 
-       	let reply = msg.reference;
-       	if(reply == null) return;
-       	let arch = msg.channel.messages.fetch(reply.messageId);
+       	let archArgs = msg.content.slice(10);
 
-       	arch.then(mesg => Bot.channels.cache.get("948818170628698182").send(mesg.author.username + " in " + mesg.guild.name + " at <#" + mesg.channel.id + ">: " + mesg.content.toString().replace(/everyone/g, "everyonе") + " (uploaded by " + msg.author.username + ")"));
-       	msg.reply("Uploaded content to SMOLBot CentCom."); //where rico at
+       	switch(archArgs){
+
+       		case "normal":
+       		let reply = msg.reference;
+       		if(reply == null) return;
+       		let arch = msg.channel.messages.fetch(reply.messageId);
+	
+    	   	arch.then(mesg => Bot.channels.cache.get("948818170628698182").send(mesg.author.username + " in " + mesg.guild.name + " at <#" + mesg.channel.id + ">: " + mesg.content.toString().replace(/everyone/g, "everyonе") + " (uploaded by " + msg.author.username + ")"));
+       		msg.reply("Uploaded content to SMOLBot CentCom."); //where rico at
+       		break;
+
+       		case "nope":
+       		let reply = msg.reference;
+       		if(reply == null) return;
+       		let archMaxime = msg.channel.messages.fetch(reply.messageId);
+
+       		archMaxime.then(amax => Bot.channels.cache.get("948892839390113842").send(amax.author.username + " in " + amax.guild.name + " at <#" + amax.channel.id + ">: " + amax.content.toString().replace(/everyone/g, "everyonе") + "(uploaded by " + msg.author.username + ")"));
+       		msg.reply("Uploaded content to Falco Maxime."); //o no
+       		break;
+
+       		default:
+       		msg.reply("Please supply an argument.");
+       		break;
+
+       	};
        	break;
 
        	case "centcom":
        	msg.reply("https://discord.gg/8syZQdqhwy").then(s => setTimeout(() => {
        		s.delete();
-       	}, 10 * 1000));
+       	}, 5 * 1000));
        	break;
     };
 });

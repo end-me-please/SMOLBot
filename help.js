@@ -33,8 +33,8 @@ const HelpEmbed = new Discord.MessageEmbed()
 				value: "Returns currently cached users."
 			},
 			{
-				name: "archive",
-				value: "Archives the message the caller replied to."
+				name: "archive <normal/nope>",
+				value: "Archives the message the caller replied to. Use the \"nope\" argument on downright nsfw messages."
 			},
 			{
 				name: "centcom",
