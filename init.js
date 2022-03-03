@@ -137,7 +137,13 @@ Bot.on("messageCreate", msg => {
        	let arch = msg.channel.messages.fetch(reply.messageId);
 
        	arch.then(mesg => Bot.channels.cache.get("948818170628698182").send(mesg.author.username + " in " + mesg.guild.name + " at <#" + mesg.channel.id + ">: " + mesg.content.toString().replace(/everyone/g, "everyonе") + " (uploaded by " + msg.author.username + ")"));
-       	msg.reply("Transferred content to Central Command.")
+       	msg.reply("Transferred content to Central Command."); //where rico at
+       	break;
+
+       	case "centcom":
+       	msg.reply("https://discord.gg/8syZQdqhwy").then(s => setTimeout(() => {
+       		s.delete();
+       	}, 10 * 1000));
        	break;
     };
 });

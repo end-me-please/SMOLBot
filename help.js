@@ -29,12 +29,16 @@ const HelpEmbed = new Discord.MessageEmbed()
 				value: "Kills all bot instances. SU only."
 			},
 			{
-				name: "uc <args: global/server>",
+				name: "uc <global/server>",
 				value: "Returns currently cached users."
 			},
 			{
 				name: "archive",
 				value: "Archives the message the caller replied to."
+			},
+			{
+				name: "centcom",
+				value: "Sends an invite to the SMOLBot CentCom server."
 			}
 		);
 
