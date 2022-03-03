@@ -137,7 +137,7 @@ Bot.on("messageCreate", msg => {
        	let arch = msg.channel.messages.fetch(reply.messageId);
 
        	arch.then(mesg => Bot.channels.cache.get("948818170628698182").send(mesg.author.username + " in " + mesg.guild.name + " at <#" + mesg.channel.id + ">: " + mesg.content.toString().replace(/everyone/g, "everyonе") + " (uploaded by " + msg.author.username + ")"));
-       	msg.reply("Transferred content to Central Command."); //where rico at
+       	msg.reply("Uploaded content to SMOLBot CentCom."); //where rico at
        	break;
 
        	case "centcom":
@@ -177,7 +177,7 @@ Bot.on("interactionCreate", async interaction => {
 
 	if(interaction.customId == "end"){
 		await interaction.update({
-			content: "Closed",
+			content: "Closed.",
 			embeds:[],
 			components: []
 		});
