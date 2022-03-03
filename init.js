@@ -144,18 +144,28 @@ Bot.on("messageCreate", msg => {
        		let reply = msg.reference;
        		if(reply == null) return;
        		let arch = msg.channel.messages.fetch(reply.messageId);
+       		let archArr = [];
 	
-    	   	arch.then(mesg => Bot.channels.cache.get("948818170628698182").send(mesg.author.username + " in " + mesg.guild.name + " at <#" + mesg.channel.id + ">: " + mesg.content.toString().replace(/everyone/g, "everyonе") + " (uploaded by " + msg.author.username + ")"));
-       		msg.reply("Uploaded content to SMOLBot CentCom."); //where rico at
+    	   	arch.then(mesg => {
+    	   		Bot.channels.cache.get("948818170628698182").send(mesg.author.username + " in " + mesg.guild.name + " at <#" + mesg.channel.id + ">: " + mesg.content.toString().replace(/everyone/g, "everyonе") + " (uploaded by " + msg.author.username + ")");
+       			msg.reply("Uploaded content to SMOLBot CentCom."); //where rico at
+       			Array.from(mesg.attachments.values()).forEach(att => archArr.push(att.url));
+       			Bot.channels.cache.get("948818170628698182").send("Attachments: " + archArr.join("\n"));
+       		});
        		break;
 
        		case "nope":
        		let replyMaxime = msg.reference;
        		if(replyMaxime == null) return;
        		let archMaxime = msg.channel.messages.fetch(replyMaxime.messageId);
+       		let archArrMaxime = [];
 
-       		archMaxime.then(amax => Bot.channels.cache.get("948892839390113842").send(amax.author.username + " in " + amax.guild.name + " at <#" + amax.channel.id + ">: " + amax.content.toString().replace(/everyone/g, "everyonе") + " (uploaded by " + msg.author.username + ")"));
-       		msg.reply("Uploaded content to Falco Maxime."); //o no
+       		archMaxime.then(amax => {
+       			Bot.channels.cache.get("948892839390113842").send(amax.author.username + " in " + amax.guild.name + " at <#" + amax.channel.id + ">: " + amax.content.toString().replace(/everyone/g, "everyonе") + " (uploaded by " + msg.author.username + ")");
+       			msg.reply("Uploaded content to Falco Maxime."); //o no
+       			Array.from(amax.attachments.values()).forEach(attMaxime => archArrMaxime.push(attMaxime.url));
+				Bot.channels.cache.get("948892839390113842").send("Attachments: " + archArrMaxime.join("\n"));
+       		});
        		break;
 
        		default:
