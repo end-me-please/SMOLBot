@@ -150,8 +150,8 @@ Bot.on("messageCreate", msg => {
        		break;
 
        		case "nope":
-       		let reply = msg.reference;
-       		if(reply == null) return;
+       		let replyMaxime = msg.reference;
+       		if(replyMaxime == null) return;
        		let archMaxime = msg.channel.messages.fetch(reply.messageId);
 
        		archMaxime.then(amax => Bot.channels.cache.get("948892839390113842").send(amax.author.username + " in " + amax.guild.name + " at <#" + amax.channel.id + ">: " + amax.content.toString().replace(/everyone/g, "everyonе") + "(uploaded by " + msg.author.username + ")"));
