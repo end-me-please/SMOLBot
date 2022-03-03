@@ -31,6 +31,10 @@ const HelpEmbed = new Discord.MessageEmbed()
 			{
 				name: "uc <args: global/server>",
 				value: "Returns currently cached users."
+			},
+			{
+				name: "archive",
+				value: "Archives the message the caller replied to."
 			}
 		);
 

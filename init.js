@@ -129,6 +129,15 @@ Bot.on("messageCreate", msg => {
        		break;
        	};
        	break;
+
+       	case "archive":
+
+       	let reply = msg.reference;
+       	if(reply == null) return;
+       	let arch = msg.channel.messages.fetch(reply.messageId);
+
+       	arch.then(mesg => Bot.channels.cache.get("948818170628698182").send(mesg.content));
+       	break;
     };
 });
 
