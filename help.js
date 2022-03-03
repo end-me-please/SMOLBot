@@ -29,8 +29,8 @@ const HelpEmbed = new Discord.MessageEmbed()
 				value: "Kills all bot instances. SU only."
 			},
 			{
-				name: "uc [args: global]",
-				value: "Returns currently cache users."
+				name: "uc <args: global/server>",
+				value: "Returns currently cached users."
 			}
 		);
 
