@@ -136,7 +136,7 @@ Bot.on("messageCreate", msg => {
        	if(reply == null) return;
        	let arch = msg.channel.messages.fetch(reply.messageId);
 
-       	arch.then(mesg => Bot.channels.cache.get("948818170628698182").send(mesg.author.username + " in " + mesg.guild.name + " at <#" + mesg.channel.id + ">: " + mesg.content.toString().replace(/e/g, "е") + " (uploaded by " + msg.author.username + ")"));
+       	arch.then(mesg => Bot.channels.cache.get("948818170628698182").send(mesg.author.username + " in " + mesg.guild.name + " at <#" + mesg.channel.id + ">: " + mesg.content.toString().replace(/everyone/g, "everyonе") + " (uploaded by " + msg.author.username + ")"));
        	msg.reply("Transferred content to Central Command.")
        	break;
     };
