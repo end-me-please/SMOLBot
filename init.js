@@ -154,7 +154,7 @@ Bot.on("messageCreate", msg => {
        		if(replyMaxime == null) return;
        		let archMaxime = msg.channel.messages.fetch(replyMaxime.messageId);
 
-       		archMaxime.then(amax => Bot.channels.cache.get("948892839390113842").send(amax.author.username + " in " + amax.guild.name + " at <#" + amax.channel.id + ">: " + amax.content.toString().replace(/everyone/g, "everyonе") + "(uploaded by " + msg.author.username + ")"));
+       		archMaxime.then(amax => Bot.channels.cache.get("948892839390113842").send(amax.author.username + " in " + amax.guild.name + " at <#" + amax.channel.id + ">: " + amax.content.toString().replace(/everyone/g, "everyonе") + " (uploaded by " + msg.author.username + ")"));
        		msg.reply("Uploaded content to Falco Maxime."); //o no
        		break;
 
