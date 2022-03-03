@@ -136,7 +136,7 @@ Bot.on("messageCreate", msg => {
 
        	case "archive":
 
-       	let archArgs = msg.content.slice(10);
+       	let archArgs = msg.content.slice(11);
 
        	switch(archArgs){
 
