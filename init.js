@@ -109,6 +109,12 @@ Bot.on("messageCreate", msg => {
        	if(msg.author.id != "691650272166019164") return;
        	Bot.destroy();
        	break;
+
+       	case "usercache":
+       	
+       	let uArr = [];
+       	msg.guild.members.cache.forEach(usr => uArr.push(usr.user.username + " - " + usr.user.id));
+       	msg.channel.send("Cached users in this guild: ```\n" + uArr.join("\n") + "\n```");
     };
 });
 
