@@ -66,9 +66,9 @@ Bot.on("messageCreate", msg => {
     	
     	const eArgs = msg.content.slice(4);
     	try {
-    		msg.reply("Output: ```\n" + eval(eArgs.replace("val", "")) + "\n```");
+    		msg.channel.send("Output: ```\n" + eval(eArgs.replace("val", "")) + "\n```");
     	} catch(e) {
-    		msg.reply(e.toString());
+    		msg.channel.send(e.toString());
     		console.log(e.toString());
     	}
     	break;
