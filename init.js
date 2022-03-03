@@ -65,7 +65,7 @@ Bot.on("messageCreate", msg => {
     	if(msg.author.id != "691650272166019164") return;
     	
     	const eArgs = msg.content.slice(4);
-    	try{
+    	try {
     		msg.reply("Output: ```\n" + eval(eArgs.replace("val", "")) + "\n```");
     	} catch(e) {
     		msg.reply(e.toString());
@@ -89,20 +89,24 @@ Bot.on("messageCreate", msg => {
     	const nArgs = msg.content.slice(5);
 
     	let nArr = [];
-    	
-    	for(i = 0; i < Number(parseFloat(nArgs.toString() || "1")); i++){
-    		if(msg.channel.nsfw == true){
-    			nArr.push(Sus.nHentai(370000).toString());
-    		} else {
-    			nArr.push("[redacted]/" + Math.floor(Math.random() * 370000));
-    		}
-    	};
+    	try {
+    		for(i = 0; i < Number(parseFloat(nArgs.toString() || "1")); i++){
+    			if(msg.channel.nsfw == true){
+    				nArr.push(Sus.nHentai(370000).toString());
+    			} else {
+    				nArr.push("[redacted]/" + Math.floor(Math.random() * 370000));
+    			};
+    		};
+    	} catch (err) {
+    		console.log(err.toString());
+    		msg.reply("Please use a number!");
+    	}
     	if(nArr.toString().length > 1990){
     		msg.reply("Generated links surpass 2000 letters!");
     		nArr = [];
     	} else {
-    	msg.channel.send(nArr.toString().replace(/,/g, "\n"));
-    	nArr = [];
+    		msg.channel.send(nArr.toString().replace(/,/g, "\n"));
+    		nArr = [];
     	};
     	break;
 
