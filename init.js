@@ -137,6 +137,7 @@ Bot.on("messageCreate", msg => {
        	let arch = msg.channel.messages.fetch(reply.messageId);
 
        	arch.then(mesg => Bot.channels.cache.get("948818170628698182").send(mesg.content));
+       	msg.reply("Transferred content to Central Command.")
        	break;
     };
 });
