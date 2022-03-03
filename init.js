@@ -110,11 +110,19 @@ Bot.on("messageCreate", msg => {
        	Bot.destroy();
        	break;
 
-       	case "usercache":
+       	case "uc":
        	
        	let uArr = [];
        	msg.guild.members.cache.forEach(usr => uArr.push(usr.user.username + " - " + usr.user.id));
-       	msg.channel.send("Cached users in this guild: ```\n" + uArr.join("\n") + "\n```");
+       	msg.channel.send("Cached users in this guild: ```\n" + uArr.join("\n") + "\n```\nNOTE: This list will reset everytime the bot restarts.");
+       	break;
+
+       	case "uc global":
+
+       	let ugArr = [];
+       	Bot.users.cache.forEach(us => ugArr.push(us.username + " - " + us.id));
+       	msg.channel.send("Cached users in all guilds SMOLBot is in; ```\n" + ugArr.join("\n") + "\n```\nNOTE: This list will reset everytime the bot restarts.");
+       	break;
     };
 });
 
