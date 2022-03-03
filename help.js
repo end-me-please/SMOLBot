@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 const HelpEmbed = new Discord.MessageEmbed()
 		.setColor("#00f437")
-		.setDescription("Minimalistic help menu.\nPrefix is \"sm!\"\nArguments closed in <> are required while ones closed in [] are optional.)
+		.setDescription("Minimalistic help menu.\nPrefix is \"sm!\"\nArguments closed in <> are required while ones closed in [] are optional.")
 		.addFields(
 			{
 				name: "ping",
