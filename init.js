@@ -113,9 +113,6 @@ Bot.on("messageCreate", msg => {
        	case "uc":
 
        	let ucArgs = msg.content.slice(6);
-
-       	if(ucArgs == "") msg.reply("No arguments provided. (eg. server/global)");
-       	return;
        	
        	switch(ucArgs){
 
