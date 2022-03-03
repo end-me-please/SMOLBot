@@ -66,7 +66,7 @@ Bot.on("messageCreate", msg => {
     	
     	const eArgs = msg.content.slice(4);
     	try {
-    		msg.channel.send("Output: ```\n" + eval(eArgs.replace("val", "").replace("`", "\"\"").replace(new RegExp("/`/", "g"), "")) + "\n```");
+    		msg.channel.send("Output: ```\n" + eval(eArgs.replace("val", "")) + "\n```");
     	} catch(e) {
     		msg.channel.send(e.toString());
     		console.log(e.toString());
