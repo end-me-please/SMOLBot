@@ -29,7 +29,7 @@ Bot.on("ready", () => {
 		}, 3600 * 1000);
 });
 
-Bot.on("messageCreate", msg => {
+Bot.on("messageCreate", msg => {try{
 	if(msg.author.bot) return;
 	if(!msg.content.startsWith(prefix)) return;
 
@@ -181,7 +181,7 @@ Bot.on("messageCreate", msg => {
        	}, 5 * 1000));
        	break;
     };
-});
+}catch(e){msg.reply("sus")}});
 
 Bot.on("interactionCreate", async interaction => {
 	if(!interaction.isButton()) return;
