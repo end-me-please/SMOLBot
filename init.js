@@ -129,7 +129,7 @@ Bot.on("messageCreate", msg => {
        		break;
 
        		default:
-       		msg.reply("Please supply an argument.");
+       		msg.reply("Please supply an argument. (server/global)");
        		break;
        	};
        	break;
@@ -140,7 +140,7 @@ Bot.on("messageCreate", msg => {
 
        	switch(archArgs){
 
-       		case "normal":
+       		case "sfw":
        		let reply = msg.reference;
        		if(reply == null) return;
        		let arch = msg.channel.messages.fetch(reply.messageId);
@@ -154,7 +154,7 @@ Bot.on("messageCreate", msg => {
        		});
        		break;
 
-       		case "nope":
+       		case "nsfw":
        		let replyMaxime = msg.reference;
        		if(replyMaxime == null) return;
        		let archMaxime = msg.channel.messages.fetch(replyMaxime.messageId);
@@ -169,7 +169,7 @@ Bot.on("messageCreate", msg => {
        		break;
 
        		default:
-       		msg.reply("Please supply an argument.");
+       		msg.reply("Please supply an argument. (sfw/nsfw)");
        		break;
 
        	};
