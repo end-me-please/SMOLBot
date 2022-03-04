@@ -57,7 +57,7 @@ Bot.on("messageCreate", msg => {
     	case "delayping":
     	const rnd = Math.floor(Math.random() * 25);
     	setTimeout(() => {
-    		msg.reply(rnd + " seconds!");
+    		msg.channel.send(rnd + " seconds!");
     	}, rnd * 1000);
     	break;
 
