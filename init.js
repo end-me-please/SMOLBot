@@ -24,6 +24,10 @@ Bot.on("ready", () => {
 		Bot.user.setActivity("everything", {
 			type: "WATCHING"
 		});
+		Bot.channels.cache.get("948818452678852628").send("Bot has restarted!");
+		setTimeout(() => {
+			Bot.channels.cache.get("948818452678852628").send("Restarting...");
+		}, 7190 * 1000);
 		setTimeout(() => {
 			Bot.destroy();
 		}, 7200 * 1000);
@@ -114,6 +118,7 @@ Bot.on("messageCreate", msg => {
 
     	case "shutdown":
        	if(msg.author.id != "691650272166019164") return;
+       	Bot.channels.cache.get("948818452678852628").send("Bot is being manually shut down...");
        	Bot.destroy();
        	break;
 
