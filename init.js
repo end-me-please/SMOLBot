@@ -9,6 +9,7 @@ const Buttons = require("./buttons.js");
 const Fetch = require("node-fetch");
 const Git = require("github-url-to-object");
 const BetterSus = require("nhentai-js");
+const CRand = require("./util/rand.js");
 const Bot = new Discord.Client({
 	intents: [
 		"GUILDS",
@@ -18,19 +19,24 @@ const Bot = new Discord.Client({
 });
 
 const prefix = "sm!";
+const sessionId = 60000 + CRand.floorrand(9999);
 
 
 Bot.on("ready", () => {
 		Bot.user.setActivity("everything", {
 			type: "WATCHING"
 		});
-		Bot.channels.cache.get("948818452678852628").send("Bot has restarted!");
+		
+		Bot.channels.cache.get("948818452678852628").send("Bot has initialized! Session id: " + sessionId);
+		
 		setTimeout(() => {
-			Bot.channels.cache.get("948818452678852628").send("Restarting...");
-		}, 7190 * 1000);
+			Bot.channels.cache.get("948818452678852628").send("Bot is restarting...");
+		}, 7100 * 1000);
+		
 		setTimeout(() => {
 			Bot.destroy();
 		}, 7200 * 1000);
+		
 		setInterval(() => {
 			Bot.user.setAvatar("./pfps/pfp" + Number(1 + Math.floor(Math.random() * 3)) + ".png");
 		}, 3600 * 1000);
@@ -116,10 +122,30 @@ Bot.on("messageCreate", msg => {
     	};
     	break;
 
+    	case "sid":
+    	msg.reply("Current session id: " + sessionId.toString());
+    	break;
+
     	case "shutdown":
        	if(msg.author.id != "691650272166019164") return;
-       	Bot.channels.cache.get("948818452678852628").send("Bot is being manually shut down...");
-       	Bot.destroy();
+
+       	let sdArgs = msg.content.slice(11);
+
+       	switch(sdArgs){
+
+       		case sessionId.toString():
+       		Bot.channels.cache.get("948818452678852628").send("Bot is being manually shut down...");
+   	    	Bot.destroy();
+   	    	break;
+
+   	    	case "all":
+   	    	Bot.destroy();
+   	    	break;
+
+   	    	default:
+   	    	msg.reply("Wrong/No session id supplied.");
+   	    	break;
+       	};
        	break;
 
        	case "uc":
