@@ -9,7 +9,6 @@ const Buttons = require("./buttons.js");
 const Fetch = require("node-fetch");
 const Git = require("github-url-to-object");
 const BetterSus = require("nhentai-js");
-const CRand = require("./util/rand.js");
 const Bot = new Discord.Client({
 	intents: [
 		"GUILDS",
@@ -19,7 +18,6 @@ const Bot = new Discord.Client({
 });
 
 const prefix = "sm!";
-const sessionId = 60000 + CRand.floorrand(9999);
 
 
 Bot.on("ready", () => {
@@ -122,30 +120,10 @@ Bot.on("messageCreate", msg => {
     	};
     	break;
 
-    	case "sid":
-    	msg.reply("Current session id: " + sessionId.toString());
-    	break;
-
     	case "shutdown":
        	if(msg.author.id != "691650272166019164") return;
 
-       	let sdArgs = msg.content.slice(12);
-
-       	switch(sdArgs){
-
-       		case sessionId.toString():
-       		Bot.channels.cache.get("948818452678852628").send("Bot is being manually shut down...");
-   	    	Bot.destroy();
-   	    	break;
-
-   	    	case "all":
-   	    	Bot.destroy();
-   	    	break;
-
-   	    	default:
-   	    	msg.reply("Wrong/No session id supplied.");
-   	    	break;
-       	};
+   	    Bot.destroy();
        	break;
 
        	case "uc":
