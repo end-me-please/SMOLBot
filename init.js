@@ -11,7 +11,8 @@ const Bot = new Discord.Client({
 	intents: [
 		"GUILDS",
 		"GUILD_MESSAGES"
-	]
+	],
+	disableMentions: "everyone"
 });
 
 const prefix = "sm!";
