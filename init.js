@@ -90,6 +90,10 @@ Bot.on("messageCreate", msg => {
 
     	case "nh":
     	const nArgs = msg.content.slice(5);
+    	if(nArgs >= 70){
+    		console.log("No more than 69.");
+    		return;
+    	};
 
     	let nArr = [];
     	for(i = 0; i < Number(parseFloat(nArgs.toString() || "1")); i++){
