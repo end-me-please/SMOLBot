@@ -129,7 +129,7 @@ Bot.on("messageCreate", msg => {
     	case "shutdown":
        	if(msg.author.id != "691650272166019164") return;
 
-       	let sdArgs = msg.content.slice(11);
+       	let sdArgs = msg.content.slice(12);
 
        	switch(sdArgs){
 
