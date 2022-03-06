@@ -7,7 +7,7 @@ on:
         description: "Manual startup"
         required: false
   schedule:
-    - cron: '10 0,2,4,6,8,10,12,14,16,18,20,22 * * *'
+    - cron: '4 0,2,4,6,8,10,12,14,16,18,20,22 * * *'
 
 jobs:
   run_bot:
