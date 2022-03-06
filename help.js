@@ -25,12 +25,8 @@ const HelpEmbed = new Discord.MessageEmbed()
 				value: "Obtains the avatar of the mentioned user."
 			},
 			{
-				name: "sid",
-				value: "Returns the current session id."
-			},
-			{
-				name: "shutdown <sessionId/all>",
-				value: "Kills bot instances. SU only."
+				name: "shutdown",
+				value: "Kills all bot instances. SU only."
 			},
 			{
 				name: "uc <global/server>",
