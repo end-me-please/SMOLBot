@@ -6,12 +6,15 @@ const DiscordModule = require("discord-module");
 const Embeds = require("./help.js");
 const Sus = require("./sus/nsfw.js");
 const Buttons = require("./buttons.js");
-const Fetch = import("node-fetch");
+const Fetch = require("node-fetch");
+const Git = require("github-url-to-object");
+const BetterSus = require("nhentai-js");
 const Bot = new Discord.Client({
 	intents: [
 		"GUILDS",
 		"GUILD_MESSAGES"
-	]
+	],
+	disableMentions: "everyone"
 });
 
 const prefix = "sm!";
@@ -21,9 +24,17 @@ Bot.on("ready", () => {
 		Bot.user.setActivity("everything", {
 			type: "WATCHING"
 		});
+		
+		Bot.channels.cache.get("948818452678852628").send("Bot has initialized!");
+		
+		setTimeout(() => {
+			Bot.channels.cache.get("948818452678852628").send("Bot is restarting...");
+		}, 7100 * 1000);
+		
 		setTimeout(() => {
 			Bot.destroy();
-		}, 7200 * 1000);
+		}, 6900 * 1000);
+		
 		setInterval(() => {
 			Bot.user.setAvatar("./pfps/pfp" + Number(1 + Math.floor(Math.random() * 3)) + ".png");
 		}, 3600 * 1000);
@@ -88,6 +99,10 @@ Bot.on("messageCreate", msg => {
 
     	case "nh":
     	const nArgs = msg.content.slice(5);
+    	if(nArgs >= 70){
+    		console.log("No more than 69.");
+    		return;
+    	};
 
     	let nArr = [];
     	for(i = 0; i < Number(parseFloat(nArgs.toString() || "1")); i++){
@@ -108,7 +123,8 @@ Bot.on("messageCreate", msg => {
 
     	case "shutdown":
        	if(msg.author.id != "691650272166019164") return;
-       	Bot.destroy();
+
+   	    Bot.destroy();
        	break;
 
        	case "uc":
@@ -130,7 +146,7 @@ Bot.on("messageCreate", msg => {
        		break;
 
        		default:
-       		msg.reply("Please supply an argument.");
+       		msg.reply("Please supply an argument. (server/global)");
        		break;
        	};
        	break;
@@ -141,28 +157,28 @@ Bot.on("messageCreate", msg => {
 
        	switch(archArgs){
 
-       		case "normal":
+       		case "sfw":
        		let reply = msg.reference;
        		if(reply == null) return;
        		let arch = msg.channel.messages.fetch(reply.messageId);
        		let archArr = [];
 	
     	   	arch.then(mesg => {
-    	   		Bot.channels.cache.get("948818170628698182").send(mesg.author.username + " in " + mesg.guild.name + " at <#" + mesg.channel.id + ">: " + mesg.content.toString().replace(/everyone/g, "everyonе") + " (uploaded by " + msg.author.username + ")");
+    	   		Bot.channels.cache.get("948818170628698182").send(mesg.author.username + " in " + mesg.guild.name.toString().replace(/everyone/g, "everyonе").replace(/here/g, "herе") + " at <#" + mesg.channel.id + ">: " + mesg.content.toString().replace(/everyone/g, "everyonе").replace(/here/g, "herе") + " (uploaded by " + msg.author.username + ")");
        			msg.reply("Uploaded content to SMOLBot CentCom."); //where rico at
        			Array.from(mesg.attachments.values()).forEach(att => archArr.push(att.url));
        			Bot.channels.cache.get("948818170628698182").send("Attachments: " + archArr.join("\n"));
        		});
        		break;
 
-       		case "nope":
+       		case "nsfw":
        		let replyMaxime = msg.reference;
        		if(replyMaxime == null) return;
        		let archMaxime = msg.channel.messages.fetch(replyMaxime.messageId);
        		let archArrMaxime = [];
 
        		archMaxime.then(amax => {
-       			Bot.channels.cache.get("948892839390113842").send(amax.author.username + " in " + amax.guild.name + " at <#" + amax.channel.id + ">: " + amax.content.toString().replace(/everyone/g, "everyonе") + " (uploaded by " + msg.author.username + ")");
+       			Bot.channels.cache.get("948892839390113842").send(amax.author.username + " in " + amax.guild.name.toString().replace(/everyone/g, "everyonе").replace(/here/g, "herе") + " at <#" + amax.channel.id + ">: " + amax.content.toString().replace(/everyone/g, "everyonе").replace(/here/g, "herе") + " (uploaded by " + msg.author.username + ")");
        			msg.reply("Uploaded content to Falco Maxime."); //o no
        			Array.from(amax.attachments.values()).forEach(attMaxime => archArrMaxime.push(attMaxime.url));
 				Bot.channels.cache.get("948892839390113842").send("Attachments: " + archArrMaxime.join("\n"));
@@ -170,7 +186,7 @@ Bot.on("messageCreate", msg => {
        		break;
 
        		default:
-       		msg.reply("Please supply an argument.");
+       		msg.reply("Please supply an argument. (sfw/nsfw)");
        		break;
 
        	};

@@ -19,6 +19,8 @@
   "dependencies": {
     "discord-module": "^2.0.17",
     "discord.js": "^13.6.0",
-    "node-fetch": "^3.2.1"
+    "github-url-to-object": "^4.0.6",
+    "nhentai-js": "^4.0.0",
+    "node-fetch": "^2.6.7"
   }
 }
