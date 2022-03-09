@@ -17,8 +17,7 @@ const Bot = new Discord.Client({
 	disableMentions: "everyone"
 });
 
-const prefix = "sm!";
-
+let prefix = "sm!";
 
 Bot.on("ready", () => {
 		Bot.user.setActivity("everything", {
@@ -43,9 +42,12 @@ Bot.on("ready", () => {
 Bot.on("messageCreate", msg => {
 	{try{
 	if(msg.author.bot) return;
-	if(!msg.content.startsWith(prefix)) return;
+	let botMention = "<@!"+Bot.user.id+">";
+	if(!msg.content.startsWith(prefix)&&!msg.content.startsWith(botMention))) return;
 
-    const cBody = msg.content.slice(prefix.length);
+    let cBody = msg.content.replace(/^(prefix)/,'');
+    cBody = cBody.replace(/^(botMention)/,'');
+    
     const args = cBody.split(" ");
     const c = args.shift().toLowerCase();
 
