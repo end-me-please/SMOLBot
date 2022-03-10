@@ -155,7 +155,7 @@ Bot.on("messageCreate", msg => {
 
        	case "archive":
 	msg.reply("no u");
-		    return;
+	break;
        	let archArgs = msg.content.slice(11);
 
        	switch(archArgs){
