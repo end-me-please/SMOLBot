@@ -43,7 +43,7 @@ Bot.on("messageCreate", msg => {
 	{try{
 	if(msg.author.bot) return;
 	let botMention = "<@!"+Bot.user.id+">";
-	if(!msg.content.startsWith(prefix)&&!msg.content.startsWith(botMention))) return;
+	if(!msg.content.startsWith(prefix)&&!msg.content.startsWith(botMention)) return;
 
     let cBody = msg.content.replace(/^(prefix)/,'');
     cBody = cBody.replace(/^(botMention)/,'');
