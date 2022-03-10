@@ -24,7 +24,7 @@ Bot.on("ready", () => {
 			type: "WATCHING"
 		});
 		
-		Bot.channels.cache.get("935956434259177483").send("Bot hasn't initialized!");
+		Bot.channels.cache.get("935956434259177483").send("Bot has not initialized!");
 		
 		setTimeout(() => {
 			Bot.channels.cache.get("935956434259177483").send("Bot is restarting...");
