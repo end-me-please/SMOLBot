@@ -20,14 +20,14 @@ const Bot = new Discord.Client({
 let prefix = "sm!";
 
 Bot.on("ready", () => {
-		Bot.user.setActivity("everything", {
+		Bot.user.setActivity("nothing", {
 			type: "WATCHING"
 		});
 		
-		Bot.channels.cache.get("948818452678852628").send("Bot has initialized!");
+		Bot.channels.cache.get("935956434259177483").send("Bot hasn't initialized!");
 		
 		setTimeout(() => {
-			Bot.channels.cache.get("948818452678852628").send("Bot is restarting...");
+			Bot.channels.cache.get("935956434259177483").send("Bot is restarting...");
 		}, 7100 * 1000);
 		
 		setTimeout(() => {
@@ -76,7 +76,7 @@ Bot.on("messageCreate", msg => {
     	break;
 
     	case "eval":
-    	if(msg.author.id != "691650272166019164") return;
+    	if(msg.author.id != "797257966973091862") return;
     	
     	const eArgs = msg.content.slice(4);
     	try {
@@ -154,7 +154,8 @@ Bot.on("messageCreate", msg => {
        	break;
 
        	case "archive":
-
+	msg.reply("no u");
+		    return;
        	let archArgs = msg.content.slice(11);
 
        	switch(archArgs){
