@@ -201,7 +201,7 @@ Bot.on("messageCreate", msg => {
        	}, 5 * 1000));
        	break;
     };
-}catch(e){msg.channel.send("an impostor sabotaged something")}};
+}catch(e){msg.channel.send("an impostor sabotaged something")}}});
 
 Bot.on("interactionCreate", async interaction => {
 	if(!interaction.isButton()) return;
