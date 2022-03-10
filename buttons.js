@@ -34,7 +34,7 @@ const nhButtonRow = new Discord.MessageActionRow().addComponents(
 	.setCustomId("end")
 	.setLabel("close")
 	.setStyle("PRIMARY")
-
+	)
 module.exports = {
 	NsfwButton: NsfwButton,
 	HelpButton: HelpButton,
